@@ -27,7 +27,7 @@ class Engines {
                 PostgresConnectorConfig.DATABASE_NAME.name() to "foo",
                 PostgresConnectorConfig.SERVER_NAME.name() to "test",
                 PostgresConnectorConfig.SLOT_NAME.name() to "embedded_debezium_slot",
-                PostgresConnectorConfig.TABLE_WHITELIST.name() to "public.apples"
+                PostgresConnectorConfig.TABLE_WHITELIST.name() to "public.bar"
         )
 
         private fun defaultPostgresConfiguration(postgresContainer: PostgresContainer): HashMap<String, Any> {
@@ -74,7 +74,7 @@ class Engines {
             log.debug("Waiting for connector to start")
             callback.isConnectorStarted.await()
             log.debug("Waiting connector to be ready to read WAL log")
-            TimeUnit.SECONDS.sleep(3)
+            TimeUnit.SECONDS.sleep(10)
             log.debug("Connector is started")
         }
     }

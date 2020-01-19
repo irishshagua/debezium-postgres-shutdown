@@ -29,12 +29,12 @@ class PostgresContainer(imageName: Future<String>) : GenericContainer<PostgresCo
         DriverManager.getConnection("jdbc:postgresql://${this.containerIpAddress}:${this.firstMappedPort}/foo", "alice", "123456").use {
             log.debug("Connection established")
             val statement: Statement = it.createStatement()
-            val query = "INSERT INTO bar VALUES (1, 'An infinite number of mathematicians walk into a bar');"
+            val query = "INSERT INTO public.bar VALUES (1, 'Golden Apple', 4.45, '{\"description\": \"Best apple ever\"}');"
             log.debug("Executing query: {}", query)
             statement.execute(query)
         }
         log.debug("Waiting until connector reads WAL log")
-        TimeUnit.SECONDS.sleep(3)
+        TimeUnit.SECONDS.sleep(10)
     }
 
     fun shutdown() {

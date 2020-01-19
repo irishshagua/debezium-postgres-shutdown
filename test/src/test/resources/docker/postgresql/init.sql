@@ -9,7 +9,9 @@ ALTER DEFAULT PRIVILEGES IN SCHEMA public
 CREATE TABLE public.bar
 (
     id              int,
-    name            varchar(255)
+    name            varchar(255),
+    cost            decimal,
+    additional_info jsonb
 );
 
 SELECT *
