@@ -31,12 +31,12 @@ class DebeziumPostgresShutdownTest {
     }
 
     @Test
-    fun test() {
+    fun continue_running_connector_when_postgres_tries_to_shutdown_but_heartbeat_is_not_enabled() {
         Engines.startEngine(engine, callback)
         postgres.insertQuery()
         postgres.shutdown()
 
         callback.isConnectorStopped.await(30, TimeUnit.SECONDS)
-        Assert.assertFalse("Connector is still running", engine.isRunning)
+        Assert.assertTrue("Connector is still running", engine.isRunning)
     }
 }

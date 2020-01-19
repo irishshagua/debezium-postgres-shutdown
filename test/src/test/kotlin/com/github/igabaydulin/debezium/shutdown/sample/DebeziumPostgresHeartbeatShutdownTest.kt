@@ -31,7 +31,7 @@ class DebeziumPostgresHeartbeatShutdownTest {
     }
 
     @Test
-    fun test() {
+    fun shutdown_connector_when_postgres_tries_to_shutdown_and_heartbeat_is_enabled() {
         Engines.startEngine(engine, callback)
         postgres.insertQuery()
         postgres.shutdown()

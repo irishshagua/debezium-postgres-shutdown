@@ -26,8 +26,8 @@ That's it!
 
 ## Results
 Current Debezium PostgreSQL connector's implementation
-will fail in both tests. The applied fix eliminates
-problem, but requires hearbeat be enabled
+will keep running in both cases, while DBZ-1727 will
+stop a connector when heartbeat is enabled
 
 ## GitHub Actions
 If you don't want to run tests manually, but interested in results,
