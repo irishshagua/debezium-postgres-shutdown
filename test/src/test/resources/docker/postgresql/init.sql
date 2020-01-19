@@ -6,12 +6,10 @@ GRANT ALL PRIVILEGES ON DATABASE foo TO alice;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public
     GRANT SELECT, INSERT, UPDATE, DELETE ON tables TO alice;
 
-CREATE TABLE public.apples
+CREATE TABLE public.bar
 (
     id              int,
-    name            varchar(255),
-    cost            decimal,
-    additional_info jsonb
+    name            varchar(255)
 );
 
 SELECT *
