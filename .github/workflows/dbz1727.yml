@@ -17,15 +17,15 @@ jobs:
         clean: 'true'
         fetch-depth: '1'
         lfs: 'false'
-    - uses: actions/cache@v1
-      id: caching-debezium
-      with:
-        path: ~/.m2/repository
-        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          ${{ runner.os }}-maven-
+#    - uses: actions/cache@v1
+#      id: caching-debezium
+#      with:
+#        path: ~/.m2/repository
+#        key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+#        restore-keys: |
+#          ${{ runner.os }}-maven-
     - name: Build Debezium
-      if: steps.caching-debezium.outputs.cache-hit != 'true'
+#      if: steps.caching-debezium.outputs.cache-hit != 'true'
       run: mvn clean install -q -Passembly -DskipITs -DskipTests #-pl debezium-connector-postgres -pl debezium-embedded -pl support/ide-configs -pl support/checkstyle
     - name: Setup Java
       uses: actions/setup-java@v1
