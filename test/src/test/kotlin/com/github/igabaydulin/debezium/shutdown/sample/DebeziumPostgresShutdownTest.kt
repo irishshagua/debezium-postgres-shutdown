@@ -36,7 +36,8 @@ class DebeziumPostgresShutdownTest {
         postgres.insertQuery()
         postgres.shutdown()
 
-        callback.isConnectorStopped.await(30, TimeUnit.SECONDS)
+        // the timeout is increased due to a low performance in GitHub Actions
+        callback.isConnectorStopped.await(60, TimeUnit.SECONDS)
         Assert.assertTrue("Connector is still running", engine.isRunning)
     }
 }
