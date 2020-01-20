@@ -36,9 +36,9 @@ class DebeziumPostgresHeartbeatShutdownTest {
         postgres.insertQuery()
         postgres.shutdown()
 
-        // the timeout is increased due to a low performance in GitHub Actions
-        val isCallbackApplied = callback.isConnectorStopped.await(60, TimeUnit.SECONDS)
+        val isCallbackApplied = callback.isConnectorStopped.await(30, TimeUnit.SECONDS)
         Assert.assertTrue("Timeout on waiting callback to be applied", isCallbackApplied)
+        TimeUnit.SECONDS.sleep(10);
         Assert.assertFalse("Connector is still running", engine.isRunning)
     }
 }
