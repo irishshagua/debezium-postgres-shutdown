@@ -36,7 +36,8 @@ class DebeziumPostgresHeartbeatShutdownTest {
         postgres.insertQuery()
         postgres.shutdown()
 
-        callback.isConnectorStopped.await(30, TimeUnit.SECONDS)
+        val isCallbackApplied = callback.isConnectorStopped.await(30, TimeUnit.SECONDS)
+        Assert.assertTrue("Timeout on waiting callback to be applied", isCallbackApplied)
         Assert.assertFalse("Connector is still running", engine.isRunning)
     }
 }
