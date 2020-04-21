@@ -31,5 +31,5 @@ stop a connector when heartbeat is enabled
 
 ## GitHub Actions
 If you don't want to run tests manually, but interested in results,
-you can check out GitHub Actions [page](https://github.com/igabaydulin/debezium-postgres-shutdown/actions) for this repository
+you can check out GitHub Actions [page](https://github.com/irishshagua/debezium-postgres-shutdown/actions) for this repository
 
